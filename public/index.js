@@ -303,7 +303,18 @@ price_dis3 = rental_price3 - discount3;
 }else if(discount_check3 === 0){
 price_dis3 = rental_price3;
 }
+
+var insurance1 = 0.5*price_dis1;
+var insurance2 = 0.5*price_dis2;
+var insurance3 = 0.5*price_dis3;
+var road_assist1 = nbj1+1;
+var road_assist2 = nbj2+1;
+var road_assist3 = nbj3+1;
+var drivy1 = price_dis1 - insurance1 - road_assist1;
+var drivy2 = price_dis2 - insurance2 - road_assist2;
+var drivy3 = price_dis3 - insurance3 - road_assist3;
 //diplay ex1
+console.log("ex1");
 var rep1 = "rental_price for " + rentals[0].driver.firstName + " is " + rental_price1;
 console.log(rep1);
 var rep2 = "rental_price for " + rentals[1].driver.firstName + " is " + rental_price2;
@@ -311,9 +322,18 @@ console.log(rep2);
 var rep3 = "rental_price for " + rentals[2].driver.firstName + " is " + rental_price3;
 console.log(rep3);
 //display ex2
+console.log("ex2");
 var repdis1 = "discount_price for " + rentals[0].driver.firstName + " is " + price_dis1;
 console.log(repdis1);
 var repdis2 = "discount_price for " + rentals[1].driver.firstName + " is " + price_dis2;
 console.log(repdis2);
 var repdis3 = "discount_price for " + rentals[2].driver.firstName + " is " + price_dis3;
 console.log(repdis3);
+//display ex3
+console.log("ex3");
+var part1 = "For " + rentals[0].driver.firstName + " road_assist " + road_assist1 + " drivy " + drivy1 +" insurance " + insurance1;
+console.log(part1);
+var part2 = "For " + rentals[1].driver.firstName + " road_assist " + road_assist2 + " drivy " + drivy2 +" insurance " + insurance2;
+console.log(part2);
+var part3 = "For " + rentals[2].driver.firstName + " road_assist " + road_assist3 + " drivy " + drivy3 +" insurance " + insurance3;
+console.log(part3);
