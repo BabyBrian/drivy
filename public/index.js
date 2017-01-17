@@ -203,9 +203,7 @@ var dc1 = new Date(sc1.replace(pattern,'$3-$2-$1'));
 var dc2 = new Date(sc2.replace(pattern,'$3-$2-$1'));
 var nbj3 = -(dc1-dc2)/(3600*24*1000);
 //
-//alert(nbj1);//owns nb of rental for car 1
-//alert(nbj2);//owns nb of rental for car 2
-//alert(nbj3);//owns nb of rental for car 3
+
 
 //number of km
 //p306 -> rentals[0].distance
@@ -225,10 +223,97 @@ var rental_price1 = tc1 + dcc1;
 var rental_price2 = tc2 + dcc2;
 var rental_price3 = tc3 + dcc3;
 
-//diplay
+//decreasing pricing
+//identify the category
+var discount_check=0;
+var discount_check2=0;
+var discount_check3=0;
+if(nbj1>1&&nbj1<=4){
+    discount_check=1;
+}else if (nbj1>4&&nbj1<=10){
+    discount_check=2;
+}else if (nbj1>10){
+    discount_check=3;
+}else{
+    //no changes if it's a day to day rental
+}
+if(nbj2>1&&nbj2<=4){
+    discount_check2=1;
+}else if (nbj2>4&&nbj2<=10){
+    discount_check2=2;
+}else if (nbj2>10){
+    discount_check2=3;
+}else{
+    //no changes if it's a day to day rental
+}
+if(nbj3>1&&nbj3<=4){
+    discount_check3=1;
+}else if (nbj3>4&&nbj3<=10){
+    discount_check3=2;
+}else if (nbj3>10){
+    discount_check3=3;
+}else{
+    //no changes if it's a day to day rental
+}
+var discount;
+var discount2;
+var discount3;
+var price_dis1;
+var price_dis2;
+var price_dis3;
+//driver1
+if(discount_check === 1){
+//10% discount range
+discount=0.1*cars[0].pricePerDay*(nbj1-1);
+price_dis1 = rental_price1 - discount;
+}else if(discount_check === 2){
+discount=0.1*cars[0].pricePerDay*3 + 0.3*cars[0].pricePerDay*(nbj1-4);
+price_dis1 = rental_price1 - discount;
+}else if(discount_check === 3){
+discount=0.1*cars[0].pricePerDay*3 + 0.3*cars[0].pricePerDay*6 + 0.3*cars[0].pricePerDay*(nbj1-10);    
+price_dis1 = rental_price1 - discount;
+}else if(discount_check === 0){
+price_dis1 = rental_price1;
+}
+//driver2
+if(discount_check2 === 1){
+//10% discount range
+discount2=0.1*cars[1].pricePerDay*(nbj2-1);
+price_dis2 = rental_price2 - discount2;
+}else if(discount_check2 === 2){
+discount2=0.1*cars[1].pricePerDay*3 + 0.3*cars[1].pricePerDay*(nbj2-4);
+price_dis2 = rental_price2 - discount2;
+}else if(discount_check2 === 3){
+discount2=0.1*cars[1].pricePerDay*3 + 0.3*cars[1].pricePerDay*6 + 0.3*cars[1].pricePerDay*(nbj2-10);  
+price_dis2 = rental_price2 - discount2;
+}else if(discount_check2 === 0){
+price_dis2 = rental_price2;
+}
+//driver3
+if(discount_check3 === 1){
+//10% discount range
+discount3=0.1*cars[2].pricePerDay*(nbj2-1);
+price_dis3 = rental_price3 - discount3;
+}else if(discount_check3 === 2){
+discount3=0.1*cars[2].pricePerDay*3 + 0.3*cars[2].pricePerDay*(nbj3-4);
+price_dis3 = rental_price3 - discount3;
+}else if(discount_check3 === 3){
+discount3=0.1*cars[2].pricePerDay*3 + 0.3*cars[2].pricePerDay*6 + 0.3*cars[2].pricePerDay*(nbj3-10);  
+price_dis3 = rental_price3 - discount3;
+}else if(discount_check3 === 0){
+price_dis3 = rental_price3;
+}
+//diplay ex1
 var rep1 = "rental_price for " + rentals[0].driver.firstName + " is " + rental_price1;
 console.log(rep1);
 var rep2 = "rental_price for " + rentals[1].driver.firstName + " is " + rental_price2;
 console.log(rep2);
 var rep3 = "rental_price for " + rentals[2].driver.firstName + " is " + rental_price3;
 console.log(rep3);
+//display ex2
+var repdis1 = "discount_price for " + rentals[0].driver.firstName + " is " + price_dis1;
+console.log(repdis1);
+var repdis2 = "discount_price for " + rentals[1].driver.firstName + " is " + price_dis2;
+console.log(repdis2);
+var repdis3 = "discount_price for " + rentals[2].driver.firstName + " is " + price_dis3;
+console.log(repdis3);
