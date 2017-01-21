@@ -330,32 +330,32 @@ if(cond1===true){
 if(cond2===true){
     price_option2= price_dis2 + 4*nbj2;
 }else{
-    price_option1= price_dis1;
+    price_option2= price_dis2;
 }
 if(cond3===true){
     price_option3= price_dis3 + 4*nbj3;
 }else{
-    price_option1= price_dis1;
+    price_option3= price_dis3;
 }
 //ex5
 //driver1
-actors[0].payment[0].amount = actors[0].payment[0].amount-price_op1; //driver
-actors[0].payment[0].amount = actors[0].payment[0].amount+price_op1; //owner
-actors[0].payment[0].amount  = actors[0].payment[0].amount+insurance1; //insurance
-actors[0].payment[0].amount  = actors[0].payment[0].amount+road_assist1; //assistance
-actors[0].payment[0].amount = actors[0].payment[0].amount+drivy1;  //drivy
+actors[0].payment[0].amount = actors[0].payment[0].amount-price_option1; //driver
+actors[0].payment[1].amount = actors[0].payment[1].amount+price_option1; //owner
+actors[0].payment[2].amount = actors[0].payment[2].amount+insurance1; //insurance
+actors[0].payment[3].amount = actors[0].payment[3].amount+road_assist1; //assistance
+actors[0].payment[4].amount = actors[0].payment[4].amount+drivy1;  //drivy
 //driver2
-actors[1].payment[0].amount = actors[1].payment[0].amount-price_op2; //driver
-actors[1].payment[0].amount = actors[1].payment[0].amount+price_op2; //owner
-actors[1].payment[0].amount  = actors[1].payment[0].amount+insurance2; //insurance
-actors[1].payment[0].amount  = actors[1].payment[0].amount+road_assist2; //assistance
-actors[1].payment[0].amount = actors[1].payment[0].amount+drivy2;  //drivy
+actors[1].payment[0].amount = actors[1].payment[0].amount-price_option2; //driver
+actors[1].payment[1].amount = actors[1].payment[1].amount+price_option2; //owner
+actors[1].payment[2].amount = actors[1].payment[2].amount+insurance2; //insurance
+actors[1].payment[3].amount = actors[1].payment[3].amount+road_assist2; //assistance
+actors[1].payment[4].amount = actors[1].payment[4].amount+drivy2;  //drivy
 //driver3
-actors[2].payment[0].amount = actors[2].payment[0].amount-price_op3; //driver
-actors[2].payment[0].amount = actors[2].payment[0].amount+price_op3; //owner
-actors[2].payment[0].amount  = actors[2].payment[0].amount+insurance3; //insurance
-actors[2].payment[0].amount  = actors[2].payment[0].amount+road_assist3; //assistance
-actors[2].payment[0].amount = actors[2].payment[0].amount+drivy3;  //drivy
+actors[2].payment[0].amount = actors[2].payment[0].amount-price_option3; //driver
+actors[2].payment[1].amount = actors[2].payment[1].amount+price_option3; //owner
+actors[2].payment[2].amount = actors[2].payment[2].amount+insurance3; //insurance
+actors[2].payment[3].amount = actors[2].payment[3].amount+road_assist3; //assistance
+actors[2].payment[4].amount = actors[2].payment[4].amount+drivy3;  //drivy
 
 //diplay ex1
 console.log("ex1");
@@ -389,6 +389,6 @@ var price_op2 = "For " + rentals[1].driver.firstName + " with option " + price_o
 console.log(price_op2);
 var price_op3 = "For " + rentals[2].driver.firstName + " with option " + price_option3 ;
 console.log(price_op3);
-//display ex4
-console.log("ex4");
+//display ex5
+console.log("ex5");
 console.log("Check updates in file");
